@@ -1,0 +1,104 @@
+/* Import font từ Google Fonts: Poppins với độ dày 400 và 600 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Cài đặt lại mặc định và chuẩn hóa kích thước */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Thiết lập nền và bố cục cho toàn trang */
+body {
+  font-family: 'Poppins', sans-serif;                             /* Font chữ hiện đại */
+  background: linear-gradient(to top, #f9c7e5, #ef129a);        /* Nền ombre xanh nhạt */
+  color: #333;                                                    /* Màu chữ xám đậm */
+  height: 100vh;                                                  /* Chiều cao 100% màn hình */
+  display: flex;                                                  /* Sử dụng flexbox để căn giữa */
+  align-items: center;                                            /* Căn giữa theo chiều dọc */
+  justify-content: center;                                        /* Căn giữa theo chiều ngang */
+  padding: 2rem;                                                  /* Khoảng cách với mép trình duyệt */
+}
+
+/* Khối chứa nội dung giới thiệu: chia 2 cột */
+.intro-container {
+  display: flex;                                                  /* Hiển thị theo chiều ngang */
+  max-width: 1200px;                                              /* Giới hạn chiều rộng tối đa */
+  width: 100%;                                                    /* Chiếm toàn bộ chiều ngang nếu nhỏ hơn 1200px */
+  background: #fff;                                               /* Nền trắng */
+  border-radius: 15px;                                            /* Bo tròn viền ngoài */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);                      /* Đổ bóng nhẹ */
+  overflow: hidden;                                               /* Ẩn phần thừa nếu có */
+}
+
+/* Cột bên trái chứa văn bản */
+.intro-text {
+  flex: 1;                                                        /* Chiếm 1 phần bằng nhau */
+  padding: 2rem;                                                  /* Khoảng cách bên trong */
+}
+
+.intro-text section {
+  margin-bottom: 2rem;                                            /* Khoảng cách giữa các phần */
+}
+
+/* Tiêu đề của mỗi section */
+.intro-text h2 {
+  color: #de1ba1;                                                 /* Màu xanh đậm */
+  font-size: 1.3rem;                                              /* Kích thước tiêu đề */
+  margin-bottom: 0.5rem;                                          /* Khoảng cách dưới tiêu đề */
+  position: relative;
+}
+
+/* Gạch chân trang trí cho tiêu đề */   
+.intro-text h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #f00492;                                     /* Màu xanh nhấn */
+  margin-top: 0.4rem;
+  border-radius: 2px;
+}
+
+/* Văn bản mô tả */
+.intro-text p {
+  font-size: 1.05rem;                                             /* Cỡ chữ vừa phải */
+  margin-bottom: 1rem;                                            /* Khoảng cách giữa các đoạn */
+  text-align: justify;                                            /* Căn đều hai bên cho dễ nhìn */
+}
+
+/* Cột bên phải chứa hình ảnh */
+.intro-image img {
+  width: 200px;                                                   /* Chiều rộng ảnh cố định */
+  height: auto;                                                   /* Chiều cao tự động theo tỉ lệ */
+  border-radius: 15px;                                            /* Bo góc ảnh */
+  border: 4px solid #d260a4;                                      /* Viền hồng tím nổi bật */
+  box-shadow: 0 4px 12px rgba(204, 37, 148, 0.1);                 /* Đổ bóng nhẹ với màu hồng */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;          /* Hiệu ứng chuyển động mượt */
+  transform: translate(-100px, 40px);                              /* Dịch ảnh sang trái và xuống dưới */
+}
+
+/* Khi rê chuột vào ảnh */
+.intro-image img:hover {
+  transform: translate(-10px, 10px) scale(1.05);                  /* Vừa dịch vừa phóng to */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);                       /* Tăng độ đổ bóng */
+}
+
+
+/* Giao diện khi màn hình nhỏ (responsive) */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;                                       /* Xếp cột theo chiều dọc */
+  }
+
+  .intro-image, .intro-text {
+    flex: none;
+    width: 100%;                                                  /* Mỗi phần chiếm toàn bộ chiều ngang */
+    padding: 1rem;                                              /* Giảm khoảng cách bên trong */
+  }
+
+  body {
+    height: auto;                                                 /* Tự động điều chỉnh chiều cao */
+    padding: 1rem;
+  }
+}

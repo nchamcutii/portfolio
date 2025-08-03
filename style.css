@@ -1,0 +1,144 @@
+/* Nhúng font chữ "Poppins" từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* ===========================
+   1. ĐỊNH NGHĨA BIẾN MÀU TOÀN CỤC
+   =========================== */
+:root {
+  --color-accent: #ef129a; /* Màu chủ đạo (xanh cyan) dùng cho navbar, footer */
+  --transition-speed: 0.3s; /* Tốc độ chuyển hiệu ứng mượt */
+
+  /* Navbar ở chế độ sáng */
+  --navbar-bg-light: var(--color-accent); /* Nền navbar sáng là màu chủ đạo */
+  --navbar-text-light: #ffffff;           /* Chữ trắng trên nền sáng */
+
+  /* Navbar ở chế độ tối */
+  --navbar-bg-dark: #1a1a1a;              /* Nền tối cho navbar */
+  --navbar-text-dark: #ffffff;            /* Chữ trắng trên nền tối */
+}
+
+/* ===========================
+   2. CÀI ĐẶT CHUNG CHO TRANG WEB
+   =========================== */
+body {
+  font-family: 'Poppins', sans-serif; /* Dùng font hiện đại */
+  margin: 0;                          /* Bỏ khoảng trắng ngoài lề */
+  background: #fdfdfd;                /* Nền trắng nhạt */
+  color: #222;                        /* Màu chữ xám đậm dễ đọc */
+}
+
+/* ===========================
+   3. THANH TIÊU ĐỀ (NAVBAR)
+   =========================== */
+.navbar {
+  position: fixed;         /* Cố định trên cùng khi cuộn trang */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;            /* Chiều cao navbar */
+  background-color: var(--navbar-bg-light); /* Màu nền mặc định (sáng) */
+  color: var(--navbar-text-light);   /* Màu chữ trắng */
+  display: flex;           /* Flexbox chia hàng ngang */
+  justify-content: space-between; /* Khoảng cách 2 bên (logo - menu) */
+  align-items: center;     /* Căn giữa chiều cao */
+  padding: 0 2rem;         /* Khoảng cách bên trong 2 bên */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Đổ bóng nhẹ dưới navbar */
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* Khi có class 'dark', đổi màu nền & chữ */
+.navbar.dark {
+  background-color: var(--navbar-bg-dark); /* Màu nền tối */
+  color: var(--navbar-text-dark);          /* Màu chữ trắng */
+}
+
+/* ===========================
+   4. LOGO / TÊN TRANG BÊN TRÁI
+   =========================== */
+.logo {
+  font-size: 1.5rem;     /* Cỡ chữ lớn */
+  font-weight: 600;      /* Đậm */
+  color: inherit;        /* Kế thừa màu từ navbar */
+}
+
+/* ===========================
+   5. DANH SÁCH MENU (UL)
+   =========================== */
+.navbar nav ul {
+  list-style: none;      /* Bỏ chấm đầu dòng */
+  display: flex;         /* Hiển thị theo hàng ngang */
+  margin: 0;
+  padding: 0;
+}
+
+/* Mỗi mục trong menu */
+.menu-item {
+  margin-left: 1.5rem;   /* Cách trái giữa các mục */
+}
+
+/* Link trong menu */
+.menu-link {
+  color: inherit;         /* Kế thừa màu chữ từ navbar */
+  text-decoration: none; /* Bỏ gạch chân */
+  font-weight: 500;
+  transition: opacity 0.3s; /* Hiệu ứng khi hover */
+}
+
+/* Khi hover link thì làm mờ nhẹ */
+.menu-link:hover {
+  opacity: 0.8;
+}
+
+/* ===========================
+   6. NÚT ĐỔI CHẾ ĐỘ DARK/LIGHT
+   =========================== */
+#theme-toggle {
+  background: white;          /* Nền trắng */
+  color: var(--color-accent); /* Chữ màu xanh */
+  border: none;
+  padding: 0.5rem 1rem;       /* Kích thước nút */
+  border-radius: 20px;        /* Bo tròn góc nút */
+  font-weight: 500;
+  cursor: pointer;            /* Khi rê chuột sẽ hiện icon tay */
+}
+
+/* ===========================
+   7. KHU VỰC CHÍNH (MAIN + IFRAME)
+   =========================== */
+main {
+  padding-top: 60px; /* Để không bị navbar che mất */
+  display: flex;
+  justify-content: center;   /* Căn giữa nội dung ngang */
+  align-items: center;       /* Căn giữa nội dung dọc */
+  min-height: calc(100vh - 60px - 60px); /* Chiều cao: toàn trang - navbar - footer */
+}
+
+/* Iframe chứa nội dung từng tab */
+iframe {
+  width: 90%;                        /* Rộng 90% khung nhìn */
+  height: 80vh;                      /* Chiều cao chiếm 80% màn hình */
+  border: none;                      /* Bỏ khung viền */
+  border-radius: 12px;               /* Bo góc iframe */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Đổ bóng mờ đẹp */
+  background-color: white;           /* Nền trắng */
+}
+
+/* ===========================
+   8. CHÂN TRANG (FOOTER)
+   =========================== */
+
+/* Giao diện mặc định (sáng) */
+footer {
+  text-align: center;                /* Căn giữa chữ */
+  padding: 0.3rem;                     /* Khoảng cách trong footer */
+  background: var(--color-accent);   /* Nền màu chủ đạo */
+  color: white;                      /* Chữ trắng */
+  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s; /* Hiệu ứng khi chuyển chế độ */
+}
+
+/* Khi bật chế độ tối */
+footer.dark {
+  background: #1a1a1a;               /* Màu nền tối giống navbar */
+  color: #ffffff;                    /* Chữ trắng */
+}

@@ -1,0 +1,90 @@
+/* Nhúng font chữ Poppins từ Google Fonts với độ dày 400 và 600 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset CSS: loại bỏ margin, padding mặc định và thiết lập box-sizing cho mọi thẻ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Thiết lập chung cho toàn bộ body */
+body {
+  font-family: 'Poppins', sans-serif; /* Sử dụng font Poppins */
+  background: linear-gradient(to top, #f0f8ff, #d669c058); /* Gradient nền từ xanh nhạt sang xanh da trời */
+  color: #333; /* Màu chữ cơ bản là xám đậm */
+  line-height: 2; /* Dãn dòng cho dễ đọc */
+  padding: 5px; /* Khoảng trắng quanh mép màn hình */
+}
+
+/* CONTAINER chứa toàn bộ phần nội dung chính */
+.container {
+  max-width: 1000px;         /* Giới hạn chiều ngang */
+  margin: 40px auto;         /* Căn giữa ngang + cách top */
+  padding: 24px;
+  background-color: #fff;    /* Nền trắng để nổi bật nội dung */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); /* Bóng nhẹ quanh nội dung */
+}
+
+/* TIÊU ĐỀ MỖI PHẦN (section) */
+section h2 {
+  color: #e8229c; /* Màu chữ xanh đậm */
+  font-size: 1.8rem; /* Kích thước lớn hơn */
+  margin-bottom: 20px;
+  border-left: 6px solid #ed0493; /* Tạo gạch đứng màu xanh */
+  padding-left: 10px; /* Đẩy chữ ra khỏi gạch */
+}
+
+/* Lưới hiển thị các chứng chỉ */
+.certificates {
+  display: flex;              /* Dùng layout flex */
+  flex-direction: column;     /* Xếp theo chiều dọc */
+  gap: 30px;                  /* Khoảng cách giữa các chứng chỉ */
+}
+
+
+/* KHỐI CHỨNG CHỈ (MỖI ITEM) */
+.cert-item {
+  background-color: #ffffff; /* Nền trắng */
+  padding: 20px; /* Khoảng cách bên trong */
+  border-radius: 12px; /* Bo góc */
+  box-shadow: 0 4px 12px rgba(216, 62, 154, 0.586); /* Bóng đổ nhẹ */
+  text-align: center; /* Căn giữa toàn bộ nội dung */
+  transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động khi hover */
+}
+
+/* Khi di chuột vào mỗi chứng chỉ -> nổi lên */
+.cert-item:hover {
+  transform: translateY(-5px); /* Nhấc khối lên 5px */
+}
+
+/* Tiêu đề mỗi chứng chỉ */
+.cert-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ed049485; /* Màu xanh đặc trưng */
+}
+
+/* Hình ảnh chứng chỉ */
+.cert-item img {
+  width: 100%; /* Chiều ngang tối đa */
+  max-height: 1000px; /* Giới hạn chiều cao */
+  object-fit: contain; /* Hiển thị đầy đủ hình mà không bị méo */
+  border-radius: 6px; /* Bo tròn viền ảnh */
+  border: 1px solid #db6ac83f; /* Viền xám nhạt */
+}
+
+/* Nếu muốn một số hình nhỏ hơn (dùng class="small-cert") */
+.small-cert {
+  max-width: 50%;
+  max-height: 100px;
+}
+
+/* DANH SÁCH KINH NGHIỆM */
+section ul {
+  list-style: disc inside; /* Gạch đầu dòng tròn và nằm trong vùng chữ */
+  padding-left: 10px;
+  line-height: 1.8; /* Khoảng cách giữa các dòng */
+}
+

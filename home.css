@@ -1,0 +1,109 @@
+/* Import font Poppins từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Khai báo các biến màu và kích thước thường dùng */
+:root {
+  --primary-color: #ef129a;       /* Màu chủ đạo (xanh ngọc) */
+  --text-color: #333;             /* Màu chữ cơ bản */
+  --bg-color: #f5f7fa;            /* Màu nền trang */
+  --avatar-width: 280px;          /* Chiều rộng avatar */
+  --avatar-height: 360px;         /* Chiều cao avatar */
+}
+
+/* Reset CSS: bỏ khoảng trắng mặc định, dùng box-sizing để tính kích thước chính xác */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cài đặt chung cho body */
+body {
+  font-family: 'Poppins', sans-serif;   /* Sử dụng font Poppins */
+  background-color: var(--bg-color);    /* Màu nền trang */
+  color: var(--text-color);             /* Màu chữ chính */
+  line-height: 1.6;                     /* Giãn dòng dễ đọc */
+  padding: 2rem;                        /* Khoảng cách lề xung quanh */
+}
+
+/* Hero section: bố cục chia 2 cột: ảnh và nội dung */
+.hero {
+  display: flex;            /* Sử dụng flexbox để chia cột */
+  align-items: center;      /* Căn giữa theo chiều dọc */
+  justify-content: center;  /* Căn giữa theo chiều ngang */
+  gap: 10rem;                /* Khoảng cách giữa avatar và nội dung */
+  flex-wrap: wrap;          /* Nếu màn hình nhỏ sẽ xuống dòng */
+  padding: 2rem;            /* Khoảng cách bên trong section */
+}
+
+/* Ảnh đại diện: hình chữ nhật + hiệu ứng */
+.avatar {
+  width: var(--avatar-width);             /* Chiều rộng avatar */
+  height: var(--avatar-height);           /* Chiều cao avatar */
+  object-fit: cover;                      /* Giữ tỉ lệ ảnh, cắt phần dư */
+  border-radius: 20px;                    /* Bo góc nhẹ hình chữ nhật */
+  box-shadow: 0 0 20px rgba(207, 31, 131, 0.3); /* Đổ bóng màu xanh nhẹ */
+  opacity: 0;                             /* Bắt đầu ẩn ảnh */
+  transform: translateX(-50px);           /* Dịch sang trái để tạo hiệu ứng trượt */
+  animation: slideInLeft 1.2s ease-out forwards; /* Áp dụng hiệu ứng trượt vào */
+}
+
+/* Nội dung giới thiệu bên phải */
+.hero-content {
+  max-width: 600px;          /* Giới hạn chiều rộng để dễ đọc */
+}
+
+/* Hiệu ứng gõ chữ cho phần tiêu đề */
+.typing {
+  overflow: hidden;                  /* Ẩn phần chữ chưa hiển thị */
+  white-space: nowrap;              /* Không cho xuống dòng */
+  border-right: 3px solid var(--primary-color); /* Thanh nháy như con trỏ gõ */
+  width: 0;                          /* Bắt đầu từ 0 để gõ dần */
+  animation: typing 3s steps(30, end) forwards, /* Gõ chữ trong 3s */
+             blink 0.75s step-end infinite;     /* Con trỏ nháy liên tục */
+}
+
+/* Tiêu đề chính */
+.hero-content h1 {
+  font-size: 2rem;             /* Cỡ chữ lớn */
+  margin-bottom: 0.5rem;       /* Khoảng cách dưới */
+}
+
+/* Phần tên được tô màu nổi bật */
+.hero-content h1 span {
+  color: var(--primary-color); /* Màu xanh nổi bật */
+  font-weight: 600;            /* Chữ đậm */
+}
+
+/* Tiêu đề phụ (ngành học) */
+.hero-content h2 {
+  font-size: 1.4rem;       /* Cỡ chữ vừa */
+  margin-bottom: 1rem;     /* Khoảng cách dưới */
+  color: #555;             /* Màu xám dịu mắt */
+}
+
+/* Các đoạn giới thiệu */
+.hero-content p {
+  margin-bottom: 0.6rem;   /* Khoảng cách giữa các dòng */
+  font-size: 1rem;         /* Cỡ chữ thường */
+}
+
+/* Hiệu ứng gõ chữ từ trái sang phải */
+@keyframes typing {
+  from { width: 0; }       /* Bắt đầu từ 0 */
+  to { width: 100%; }      /* Kết thúc với chiều rộng đầy đủ */
+}
+
+/* Hiệu ứng nhấp nháy con trỏ */
+@keyframes blink {
+  from, to { border-color: transparent; }  /* Lúc đầu và kết thúc ẩn */
+  50% { border-color: var(--primary-color); } /* Hiển thị giữa chu kỳ */
+}
+
+/* Hiệu ứng trượt ảnh từ trái vào */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0); /* Trả ảnh về vị trí ban đầu */
+    opacity: 1;               /* Hiện ảnh lên */
+  }
+}
